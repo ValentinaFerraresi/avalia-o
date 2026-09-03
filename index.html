@@ -11,72 +11,87 @@
         <h1>Vida em Marte</h1>
         <p>A Jornada da Humanidade no Planeta Vermelho</p>
         <nav>
-            <ul>
-                <li><a href="#visao-geral">Visão Geral</a></li>
-                <li><a href="#habitacao">Habitação</a></li>
-                <li><a href="#alimentacao">Alimentação</a></li>
-                <li><a href="#vestuario">Vestuário</a></li>
-            </ul>
+            <button class="nav-btn active" onclick="openPage('visao-geral')">Visão Geral</button>
+            <button class="nav-btn" onclick="openPage('habitacao')">Habitação</button>
+            <button class="nav-btn" onclick="openPage('alimentacao')">Alimentação</button>
+            <button class="nav-btn" onclick="openPage('vestuario')">Vestuário</button>
         </nav>
     </header>
 
     <main>
-        <section id="visao-geral" class="card">
+        <section id="visao-geral" class="page-content active">
             <h2>Visão Geral do Planeta</h2>
-            <div class="content-box">
-                <p>Marte é um mundo frio, seco e desértico. A atmosfera é extremamente fina, composta por 95% de dióxido de carbono. A temperatura média é de -60°C, podendo atingir marcas abaixo de -125°C nos polos durante o inverno.</p>
-                <div class="info-grid">
-                    <div class="info-item">
-                        <strong>Gravidade:</strong> 38% da Terra
-                    </div>
-                    <div class="info-item">
-                        <strong>Pressão Atmosférica:</strong> Menos de 1% da Terra
-                    </div>
-                    <div class="info-item">
-                        <strong>Paisagem:</strong> Cânions profundos, vulcões extintos e tempestades de poeira globais.
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1614728894747-a83421e2b9c9?auto=format&fit=crop&w=1000&q=80" alt="Superfície de Marte" class="section-img">
+                <p>Marte é um mundo frio, seco e desértico. A atmosfera é extremamente fina, composta por 95% de dióxido de carbono. A temperatura média é de -60°C.</p>
+                
+                <button class="interact-btn" onclick="toggleDetails('detalhes-clima')">Ver Dados Climáticos</button>
+                
+                <div id="detalhes-clima" class="hidden-info">
+                    <div class="info-grid">
+                        <div class="info-item"><strong>Gravidade:</strong> 38% da Terra</div>
+                        <div class="info-item"><strong>Pressão:</strong> < 1% da Terra</div>
+                        <div class="info-item"><strong>Temp. Mínima:</strong> -125°C</div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="habitacao" class="card">
-            <h2>Habitação: Proteção e Construção</h2>
-            <div class="content-box">
-                <p>As habitações marciais precisam combater a radiação cósmica, a baixa pressão e as baixas temperaturas. O design utiliza habitats subterrâneos e cúpulas de impressão 3D.</p>
-                <ul>
-                    * **Estruturas Subterrâneas:** Utilização de tubos de lava naturais para bloquear a radiação nociva.
-                    * **Impressão 3D Local:** Domicílios construídos utilizando o próprio regolito (solo marciano) misturado com polímeros.
-                    * **Pressurização:** Redes de cúpulas interconectadas por túneis selados a vácuo.
-                </ul>
+        <section id="habitacao" class="page-content">
+            <h2>Habitação: Proteção Radiativa</h2>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1541185933-ef5d8ed016c2?auto=format&fit=crop&w=1000&q=80" alt="Habitat em Marte" class="section-img">
+                <p>As construções marciais precisam combater a radiação cósmica e a extrema variação térmica.</p>
+                
+                <div class="accordion">
+                    <div class="accordion-item" onclick="toggleAccordion(this)">
+                        <h3>Tubos de Lava Subterrâneos ➕</h3>
+                        <p class="accordion-content">Cavernas vulcânicas naturais oferecem proteção contra radiação e impactos de micro-meteoros.</p>
+                    </div>
+                    <div class="accordion-item" onclick="toggleAccordion(this)">
+                        <h3>Impressão 3D com Regolito ➕</h3>
+                        <p class="accordion-content">Robôs autônomos utilizam o próprio solo marciano misturado com polímeros para erguer estruturas densas.</p>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <section id="alimentacao" class="card">
-            <h2>Alimentação em Estufas e Laboratórios</h2>
-            <div class="content-box">
-                <p>A produção de alimentos em Marte baseia-se na autossustentabilidade, aproveitando sistemas hidropônicos, aeropônicos e carne cultivada.</p>
-                <ul>
-                    * **Estufas Automatizadas:** Cultivos de batata, espinafre, soja e algas sob iluminação LED otimizada.
-                    * **Hidroponia e Aeroponia:** Cultivo de plantas sem solo, utilizando soluções de nutrientes reciclados.
-                    * **Proteína em Laboratório:** Produção de proteína via fermentação de precisão e cultivo de células de carne.
-                </ul>
+        <section id="alimentacao" class="page-content">
+            <h2>Alimentação em Estufas</h2>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?auto=format&fit=crop&w=1000&q=80" alt="Estufa e Hidroponia" class="section-img">
+                <p>A produção local de alimentos é vital para a sobrevivência em colônias de longo prazo.</p>
+                
+                <div class="interactive-quiz">
+                    <h3>O que você comeria em Marte?</h3>
+                    <button class="quiz-btn" onclick="checkFood('hidroponia')">Vegetais Hidropônicos</button>
+                    <button class="quiz-btn" onclick="checkFood('lab')">Proteína Cultivada</button>
+                    <p id="quiz-result"></p>
+                </div>
             </div>
         </section>
 
-        <section id="vestuario" class="card">
-            <h2>Vestuário: Interno e Externo</h2>
-            <div class="content-box">
-                <p>As roupas em Marte têm funções essenciais de sobrevivência e conforto biomecânico.</p>
-                <ul>
-                    * **Ambiente Externo (Trajes EVA):** Trajes de biopressão flexíveis que mantêm o corpo pressurizado sem a rigidez dos trajes espaciais antigos, equipados com escudos térmicos e proteção contra radiação.
-                    * **Ambiente Interno:** Roupas leves, de tecidos bactericidas e respiráveis, adaptadas para a menor gravidade e reutilização contínua através de sistemas avançados de lavagem sem água.
-                </ul>
+        <section id="vestuario" class="page-content">
+            <h2>Vestuário Espacial e Interno</h2>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&w=1000&q=80" alt="Traje Espacial" class="section-img">
+                <p>Trajes de biopressão mantêm os astronautas seguros durante atividades fora dos habitats.</p>
+                
+                <div class="suit-toggle">
+                    <button class="interact-btn" onclick="showSuit('eva')">Traje Externo (EVA)</button>
+                    <button class="interact-btn" onclick="showSuit('interno')">Traje Interno</button>
+                    <div id="suit-info" class="info-box">
+                        <p>Selecione um traje acima para ver suas especificações técnicas.</p>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2026 Projeto Colonização de Marte - Todos os direitos reservados.</p>
+        <p>&copy; 2026 Projeto Colonização de Marte</p>
     </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
