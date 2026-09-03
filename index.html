@@ -3,22 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ARES-1: Vida em Marte</title>
+    <title>ARES-X: Guia de Sobrevivência em Marte</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <!-- CABEÇALHO -->
+    <!-- NAVEGAÇÃO SUPERIOR (TROCA DE PÁGINAS) -->
     <header>
         <div class="logo">
-            <span class="planet-icon">🪐</span> ARES-1 <small>BASE MARTE</small>
+            <span class="pulse-dot"></span> ARES-X <small>COLONY INTERFACE</small>
         </div>
         <nav>
-            <button class="nav-btn active" onclick="navigate('visao-geral')">Visão Geral</button>
-            <button class="nav-btn" onclick="navigate('habitacao')">Habitação</button>
-            <button class="nav-btn" onclick="navigate('alimentacao')">Alimentação</button>
-            <button class="nav-btn" onclick="navigate('vestuario')">Vestuário</button>
+            <button class="nav-btn active" onclick="navigate('visao-geral')">🌐 Planeta</button>
+            <button class="nav-btn" onclick="navigate('habitacao')">🏛️ Habitação</button>
+            <button class="nav-btn" onclick="navigate('alimentacao')">🧪 Alimentação</button>
+            <button class="nav-btn" onclick="navigate('vestuario')">👨‍🚀 Trajes</button>
+            <button class="nav-btn" onclick="navigate('curiosidades')">⚡ Curiosidades</button>
         </nav>
     </header>
 
@@ -27,37 +28,38 @@
         <section id="visao-geral" class="page active">
             <div class="card">
                 <div class="card-header">
-                    <h2>Visão Geral do Planeta</h2>
-                    <span class="badge">Condições Ambientais</span>
+                    <h2>Visão Geral do Planeta Vermelho</h2>
+                    <span class="badge neon-red">Mundo Desértico</span>
                 </div>
                 
-                <img src="https://images.unsplash.com/photo-1614728894747-a83421e2b9c9?auto=format&fit=crop&w=800&q=80" alt="Superfície de Marte" class="thumb-img">
+                <img src="https://images.unsplash.com/photo-1614728894747-a83421e2b9c9?auto=format&fit=crop&w=800&q=80" alt="Superfície Marciana" class="thumb-img">
                 
                 <p class="description">
-                    Marte é um deserto congelado e desolado. Com uma atmosfera extremamente fina composta por 95% de dióxido de carbono, o planeta carece de uma camada magnética protetora, expondo a superfície a altos níveis de radiação solar e cósmica.
+                    Marte é um deserto de poeira oxidada (ferrugem), o que lhe confere a cor vermelha. Possui uma atmosfera extremamente fina e fria, sem camada de ozônio ou campo magnético global.
                 </p>
-                
-                <button class="action-btn" onclick="toggleDetails('clima-info')">📊 Acessar Dados Telemétricos</button>
-                
-                <div id="clima-info" class="hidden-panel">
-                    <div class="info-grid">
-                        <div class="info-item">
-                            <span class="item-title">Gravidade</span>
-                            <span class="item-value">0.38g (38% da Terra)</span>
-                        </div>
-                        <div class="info-item">
-                            <span class="item-title">Pressão Atmosférica</span>
-                            <span class="item-value">0.6 kPa (&lt; 1% da Terra)</span>
-                        </div>
-                        <div class="info-item">
-                            <span class="item-title">TemperaturaMédia</span>
-                            <span class="item-value">-60°C (Mín: -125°C)</span>
-                        </div>
-                        <div class="info-item">
-                            <span class="item-title">Duração do Dia (Sol)</span>
-                            <span class="item-value">24 horas e 39 minutos</span>
-                        </div>
+
+                <div class="info-grid">
+                    <div class="info-item">
+                        <span class="item-title">Gravidade</span>
+                        <span class="item-value">38% da Terra</span>
                     </div>
+                    <div class="info-item">
+                        <span class="item-title">Temp. Média</span>
+                        <span class="item-value">-60 °C</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="item-title">Pressão Atmosférica</span>
+                        <span class="item-value">0,6% da Terra</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="item-title">Composição Atmosférica</span>
+                        <span class="item-value">95% CO₂</span>
+                    </div>
+                </div>
+
+                <button class="action-btn" onclick="toggleDetails('detalhes-atmosfera')">🔍 Detalhes Atmosféricos</button>
+                <div id="detalhes-atmosfera" class="hidden-panel">
+                    <p>Sem magnetosfera, os ventos solares varrem constantemente os gases do planeta. A respiração sem trajes pressurizados causaria ebullismo (fervura dos fluidos corporais) em poucos segundos devido à baixíssima pressão.</p>
                 </div>
             </div>
         </section>
@@ -66,36 +68,36 @@
         <section id="habitacao" class="page">
             <div class="card">
                 <div class="card-header">
-                    <h2>Habitação & Arquitetura</h2>
-                    <span class="badge">Engenharia Extrema</span>
+                    <h2>Habitação & Escudos Antirradiação</h2>
+                    <span class="badge neon-orange">Arquitetura Extrema</span>
                 </div>
 
                 <img src="https://images.unsplash.com/photo-1541185933-ef5d8ed016c2?auto=format&fit=crop&w=800&q=80" alt="Habitat Marciano" class="thumb-img">
-                
+
                 <p class="description">
-                    Construir em Marte exige proteção contra tempestades de poeira globais, frio extremo e tempestades solares. As estruturas combinam engenharia de solo com reaproveitamento de formações geológicas naturais.
+                    Para sobreviver à radiação cósmica diária, os habitats marcianos combinam engenharia robótica autônoma com formações geológicas naturais.
                 </p>
-                
+
                 <div class="interactive-list">
                     <button class="accordion-btn" onclick="toggleAccordion('acc1')">
-                        🌋 Tubos de Lava Subterrâneos <span class="arrow">▼</span>
+                        🌋 Tubos de Lava Vulcânica <span class="arrow">▼</span>
                     </button>
                     <div id="acc1" class="accordion-panel">
-                        <p>Cavernas vulcânicas formadas há bilhões de anos servem como escudos naturais. Construir a colônia dentro desses tubos reduz a radiação recebida pelos colonos a níveis seguros semelhantes aos da Terra.</p>
+                        <p>Cavernas subterrâneas criadas por vulcões antigos abrigam bases inteiras. O teto de rocha espessa de dezenas de metros bloqueia 99% da radiação e protege contra impactos de micrometeoritos.</p>
                     </div>
 
                     <button class="accordion-btn" onclick="toggleAccordion('acc2')">
-                        🖨️ Impressão 3D em Regolito Marciano <span class="arrow">▼</span>
+                        🖨️ Impressão 3D com Solo (Regolito) <span class="arrow">▼</span>
                     </button>
                     <div id="acc2" class="accordion-panel">
-                        <p>Robôs autônomos enviados anos antes dos humanos fundem a poeira marciana (regolito) com polímeros sintéticos, criando cúpulas pressurizadas ultra-resistentes sem a necessidade de transporte de cimento da Terra.</p>
+                        <p>Robôs autônomos fundem o solo marciano com ligantes poliméricos para construir cúpulas de proteção externa antes mesmo da chegada das tripulações humanas.</p>
                     </div>
 
                     <button class="accordion-btn" onclick="toggleAccordion('acc3')">
-                        🧊 Arquitetura de Gelo (Ice House) <span class="arrow">▼</span>
+                        🧊 Cúpulas de Gelo Transparente <span class="arrow">▼</span>
                     </button>
                     <div id="acc3" class="accordion-panel">
-                        <p>Aproveitando o gelo do subsolo, projetos estruturais utilizam camadas espessas de gelo translúcido impresso em 3D para filtrar radiação nociva e permitir a entrada de luz natural.</p>
+                        <p>A água congelada do subsolo é extraída e impressa em camadas. O gelo é um excelente bloqueador de radiação cósmica e permite a entrada de luz natural para o ecossistema interno.</p>
                     </div>
                 </div>
             </div>
@@ -105,24 +107,24 @@
         <section id="alimentacao" class="page">
             <div class="card">
                 <div class="card-header">
-                    <h2>Alimentação & Autossustentabilidade</h2>
-                    <span class="badge">Bioengenharia</span>
+                    <h2>Sistemas de Alimentação Sustentável</h2>
+                    <span class="badge neon-green">Ciclo Fechado</span>
                 </div>
 
-                <img src="https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?auto=format&fit=crop&w=800&q=80" alt="Estufa Hidropônica" class="thumb-img">
-                
+                <img src="https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?auto=format&fit=crop&w=800&q=80" alt="Estufa Espacial" class="thumb-img">
+
                 <p class="description">
-                    Transportar comida da Terra custa centenas de milhares de dólares por quilo. A solução é a produção local de ciclo fechado, onde todo resíduo e água são 100% reciclados.
+                    Em Marte, nada é descartado. A água e os nutrientes passam por processos de reciclagem de 100% de eficiência.
                 </p>
-                
+
                 <div class="quiz-box">
-                    <h3>Selecione um sistema de produção:</h3>
+                    <h3>Explore as fontes de alimento:</h3>
                     <div class="button-group">
-                        <button class="action-btn" onclick="showFoodInfo('hidroponia')">🌱 Estufas Hidropônicas</button>
-                        <button class="action-btn" onclick="showFoodInfo('lab')">🧬 Bioreatores de Carne</button>
-                        <button class="action-btn" onclick="showFoodInfo('algas')">🦠 Fazendas de Espirulina</button>
+                        <button class="action-btn" onclick="showFoodInfo('hidroponia')">🌱 Aeroponia & LEDs</button>
+                        <button class="action-btn" onclick="showFoodInfo('carne')">🧫 Proteína Cultivada</button>
+                        <button class="action-btn" onclick="showFoodInfo('algas')">🦠 Fotobiorreatores</button>
                     </div>
-                    <div id="food-output" class="output-text">Clique em um dos sistemas acima para inspecionar os processos biológicos.</div>
+                    <div id="food-output" class="output-text">Clique em uma das opções para examinar a tecnologia nutricional.</div>
                 </div>
             </div>
         </section>
@@ -131,29 +133,63 @@
         <section id="vestuario" class="page">
             <div class="card">
                 <div class="card-header">
-                    <h2>Vestuário Espacial & Cotidiano</h2>
-                    <span class="badge">Sistemas de Suporte à Vida</span>
+                    <h2>Trajes & Suporte à Vida</h2>
+                    <span class="badge neon-blue">Biopressão</span>
                 </div>
 
-                <img src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&w=800&q=80" alt="Traje Espacial" class="thumb-img">
-                
+                <img src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&w=800&q=80" alt="Traje de Astronauta" class="thumb-img">
+
                 <p class="description">
-                    As roupas no Planeta Vermelho não servem apenas para conforto, mas atuam como escudos de sobrevivência e reguladores de pressão corporal.
+                    Os trajes marcianos deixaram de ser grandes bolhas pressurizadas para se tornarem segunda peles tecnológicas mecânicas.
                 </p>
-                
-                <div class="suit-selector">
-                    <div class="button-group">
-                        <button class="action-btn" onclick="showSuit('eva')">👨‍🚀 Traje Externo (Bio-Skinsuit)</button>
-                        <button class="action-btn" onclick="showSuit('interno')">👕 Vestuário Interno</button>
+
+                <div class="button-group">
+                    <button class="action-btn" onclick="showSuit('eva')">👨‍🚀 Traje Externo (Bio-Skin)</button>
+                    <button class="action-btn" onclick="showSuit('interno')">👕 Roupas de Habitat</button>
+                </div>
+                <div id="suit-output" class="output-box">Selecione uma modalidade de vestuário para conferir os detalhes.</div>
+            </div>
+        </section>
+
+        <!-- PÁGINA 5: CURIOSIDADES -->
+        <section id="curiosidades" class="page">
+            <div class="card">
+                <div class="card-header">
+                    <h2>Fatos Extraordinários sobre Marte</h2>
+                    <span class="badge neon-purple">Dados Científicos</span>
+                </div>
+
+                <div class="facts-grid">
+                    <div class="fact-card" onclick="highlightFact(this)">
+                        <div class="fact-icon">🌋</div>
+                        <h3>O Maior Vulcão do Sistema Solar</h3>
+                        <p>O <em>Olympus Mons</em> tem 22 km de altura — quase três vezes o tamanho do Monte Everest. Sua base cobriria a área de um país inteiro.</p>
                     </div>
-                    <div id="suit-output" class="output-box">Selecione uma especificação técnica de vestuário.</div>
+
+                    <div class="fact-card" onclick="highlightFact(this)">
+                        <div class="fact-icon">🌅</div>
+                        <h3>Pôr do Sol Azul</h3>
+                        <p>Diferente da Terra, o pôr do sol em Marte é azulado. A poeira fina na atmosfera dispersa a luz azul de forma mais eficiente em direção ao observador.</p>
+                    </div>
+
+                    <div class="fact-card" onclick="highlightFact(this)">
+                        <div class="fact-icon">🏃</div>
+                        <h3>Saltos Superhumanos</h3>
+                        <p>Com apenas 38% da gravidade terrestre, você conseguiria saltar quase 3 vezes mais alto em Marte usando o mesmo esforço muscular.</p>
+                    </div>
+
+                    <div class="fact-card" onclick="highlightFact(this)">
+                        <div class="fact-icon">🌪️</div>
+                        <h3>Tempestades Globais</h3>
+                        <p>As tempestades de poeira em Marte podem cobrir o planeta inteiro por meses, bloqueando totalmente a luz solar para painéis de energia.</p>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2026 Programa Espacial Marte - Módulo de Divulgação Científica</p>
+        <p>&copy; 2026 ARES-X Project — Base de Conhecimento Espacial</p>
     </footer>
 
     <script src="script.js"></script>
