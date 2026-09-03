@@ -1,53 +1,56 @@
-// script.js
-
-// Troca de páginas (Navegação SPA)
-function openPage(pageId) {
-    const pages = document.querySelectorAll('.page-content');
-    const buttons = document.querySelectorAll('.nav-btn');
-
+// NAVEGAÇÃO ENTRE DIFERENTES PÁGINAS
+function navigate(pageId) {
+    // Esconde todas as páginas
+    const pages = document.querySelectorAll('.page');
     pages.forEach(page => page.classList.remove('active'));
-    buttons.forEach(btn => btn.classList.remove('active'));
 
+    // Remove estado ativo dos botões do menu
+    const navButtons = document.querySelectorAll('.nav-btn');
+    navButtons.forEach(btn => btn.classList.remove('active'));
+
+    // Mostra a página selecionada
     document.getElementById(pageId).classList.add('active');
+
+    // Ativa o botão correspondente no menu
     event.currentTarget.classList.add('active');
 }
 
-// Revelar informações ocultas
-function toggleDetails(elementId) {
-    const element = document.getElementById(elementId);
-    if (element.style.display === "block") {
-        element.style.display = "none";
+// MOSTRAR/OCULTAR PAINEL SIMPLES (VISÃO GERAL)
+function toggleDetails(panelId) {
+    const panel = document.getElementById(panelId);
+    if (panel.style.display === "block") {
+        panel.style.display = "none";
     } else {
-        element.style.display = "block";
+        panel.style.display = "block";
     }
 }
 
-// Accordion na página de Habitação
-function toggleAccordion(element) {
-    const content = element.querySelector('.accordion-content');
-    if (content.style.display === "block") {
-        content.style.display = "none";
+// EFEITO SANFONA (HABITAÇÃO)
+function toggleAccordion(panelId) {
+    const panel = document.getElementById(panelId);
+    if (panel.style.display === "block") {
+        panel.style.display = "none";
     } else {
-        content.style.display = "block";
+        panel.style.display = "block";
     }
 }
 
-// Interação de Alimentação
-function checkFood(type) {
-    const result = document.getElementById('quiz-result');
+// INTERAÇÃO DE ALIMENTAÇÃO
+function showFoodInfo(type) {
+    const output = document.getElementById('food-output');
     if (type === 'hidroponia') {
-        result.innerText = "Excelente escolha! Tomates, batatas e alface crescem muito bem em água enriquecida com minerais.";
-    } else {
-        result.innerText = "Proteínas cultivadas em biorreatores fornecem os aminoácidos necessários sem precisar de animais.";
+        output.innerHTML = "<strong>Estufas Hidropônicas:</strong> Cultivo de vegetais sem solo, utilizando soluções líquidas ricas em nutrientes e iluminação LED.";
+    } else if (type === 'lab') {
+        output.innerHTML = "<strong>Proteínas em Lab:</strong> Produção de carne cultivada em biorreatores a partir de células, reduzindo custos de transporte espacial.";
     }
 }
 
-// Alternador de Trajes
-function showSuit(suitType) {
-    const box = document.getElementById('suit-info');
-    if (suitType === 'eva') {
-        box.innerHTML = "<strong>Traje EVA:</strong> Camadas de kevlar, revestimento antirradiação, controle térmico interno e suprimento de O2 para até 8 horas.";
-    } else {
-        box.innerHTML = "<strong>Traje Interno:</strong> Roupas leves de fibra sintética bactericida, com lavagem ultrassônica (sem necessidade de água).";
+// SELETOR DE TRAJES (VESTUÁRIO)
+function showSuit(type) {
+    const output = document.getElementById('suit-output');
+    if (type === 'eva') {
+        output.innerHTML = "<strong>Traje EVA (Extraveicular):</strong> Equipado com proteção contra radiação, camadas isolantes de temperatura e suporte de oxigênio de alta pressão.";
+    } else if (type === 'interno') {
+        output.innerHTML = "<strong>Traje Interno:</strong> Roupas confortáveis feitas com tecidos sintéticos antimicrobianos, limpas por processos ultrassônicos sem uso de água.";
     }
 }

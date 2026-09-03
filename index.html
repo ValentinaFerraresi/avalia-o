@@ -3,31 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vida em Marte: A Nova Fronteira</title>
+    <title>Vida em Marte</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+    <!-- CABEÇALHO E NAVEGAÇÃO ENTRE PÁGINAS -->
     <header>
-        <h1>Vida em Marte</h1>
-        <p>A Jornada da Humanidade no Planeta Vermelho</p>
+        <div class="logo">MARS COLONY</div>
         <nav>
-            <button class="nav-btn active" onclick="openPage('visao-geral')">Visão Geral</button>
-            <button class="nav-btn" onclick="openPage('habitacao')">Habitação</button>
-            <button class="nav-btn" onclick="openPage('alimentacao')">Alimentação</button>
-            <button class="nav-btn" onclick="openPage('vestuario')">Vestuário</button>
+            <button class="nav-btn active" onclick="navigate('visao-geral')">Visão Geral</button>
+            <button class="nav-btn" onclick="navigate('habitacao')">Habitação</button>
+            <button class="nav-btn" onclick="navigate('alimentacao')">Alimentação</button>
+            <button class="nav-btn" onclick="navigate('vestuario')">Vestuário</button>
         </nav>
     </header>
 
     <main>
-        <section id="visao-geral" class="page-content active">
+        <!-- PÁGINA 1: VISÃO GERAL -->
+        <section id="visao-geral" class="page active">
             <h2>Visão Geral do Planeta</h2>
             <div class="card">
-                <img src="https://images.unsplash.com/photo-1614728894747-a83421e2b9c9?auto=format&fit=crop&w=1000&q=80" alt="Superfície de Marte" class="section-img">
-                <p>Marte é um mundo frio, seco e desértico. A atmosfera é extremamente fina, composta por 95% de dióxido de carbono. A temperatura média é de -60°C.</p>
+                <img src="https://images.unsplash.com/photo-1614728894747-a83421e2b9c9?auto=format&fit=crop&w=600&q=80" alt="Superfície de Marte" class="thumb-img">
+                <p>Marte é um planeta frio, seco e com atmosfera rarefeita (95% CO₂). A temperatura média é de -60°C.</p>
                 
-                <button class="interact-btn" onclick="toggleDetails('detalhes-clima')">Ver Dados Climáticos</button>
+                <button class="action-btn" onclick="toggleDetails('clima-info')">Ver Dados Climáticos</button>
                 
-                <div id="detalhes-clima" class="hidden-info">
+                <div id="clima-info" class="hidden-panel">
                     <div class="info-grid">
                         <div class="info-item"><strong>Gravidade:</strong> 38% da Terra</div>
                         <div class="info-item"><strong>Pressão:</strong> < 1% da Terra</div>
@@ -37,59 +39,65 @@
             </div>
         </section>
 
-        <section id="habitacao" class="page-content">
-            <h2>Habitação: Proteção Radiativa</h2>
+        <!-- PÁGINA 2: HABITAÇÃO -->
+        <section id="habitacao" class="page">
+            <h2>Habitação & Proteção</h2>
             <div class="card">
-                <img src="https://images.unsplash.com/photo-1541185933-ef5d8ed016c2?auto=format&fit=crop&w=1000&q=80" alt="Habitat em Marte" class="section-img">
-                <p>As construções marciais precisam combater a radiação cósmica e a extrema variação térmica.</p>
+                <img src="https://images.unsplash.com/photo-1541185933-ef5d8ed016c2?auto=format&fit=crop&w=600&q=80" alt="Habitat Marciano" class="thumb-img">
+                <p>Estruturas projetadas para suportar a radiação cósmica e extremas variações térmicas.</p>
                 
-                <div class="accordion">
-                    <div class="accordion-item" onclick="toggleAccordion(this)">
-                        <h3>Tubos de Lava Subterrâneos ➕</h3>
-                        <p class="accordion-content">Cavernas vulcânicas naturais oferecem proteção contra radiação e impactos de micro-meteoros.</p>
+                <div class="interactive-list">
+                    <button class="accordion-btn" onclick="toggleAccordion('acc1')">Tubos de Lava Subterrâneos</button>
+                    <div id="acc1" class="accordion-panel">
+                        <p>Cavernas vulcânicas naturais oferecem proteção contra radiação e impactos de meteoritos.</p>
                     </div>
-                    <div class="accordion-item" onclick="toggleAccordion(this)">
-                        <h3>Impressão 3D com Regolito ➕</h3>
-                        <p class="accordion-content">Robôs autônomos utilizam o próprio solo marciano misturado com polímeros para erguer estruturas densas.</p>
+
+                    <button class="accordion-btn" onclick="toggleAccordion('acc2')">Impressão 3D com Solo Marciano</button>
+                    <div id="acc2" class="accordion-panel">
+                        <p>Robôs utilizam o próprio regolito para erguer cúpulas resistentes sem importar concreto.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="alimentacao" class="page-content">
-            <h2>Alimentação em Estufas</h2>
+        <!-- PÁGINA 3: ALIMENTAÇÃO -->
+        <section id="alimentacao" class="page">
+            <h2>Alimentação em Marte</h2>
             <div class="card">
-                <img src="https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?auto=format&fit=crop&w=1000&q=80" alt="Estufa e Hidroponia" class="section-img">
-                <p>A produção local de alimentos é vital para a sobrevivência em colônias de longo prazo.</p>
+                <img src="https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?auto=format&fit=crop&w=600&q=80" alt="Estufa Hidropônica" class="thumb-img">
+                <p>A produção local de alimentos utiliza técnicas avançadas para economizar água e espaço.</p>
                 
-                <div class="interactive-quiz">
-                    <h3>O que você comeria em Marte?</h3>
-                    <button class="quiz-btn" onclick="checkFood('hidroponia')">Vegetais Hidropônicos</button>
-                    <button class="quiz-btn" onclick="checkFood('lab')">Proteína Cultivada</button>
-                    <p id="quiz-result"></p>
+                <div class="quiz-box">
+                    <h3>Explore as fontes de alimento:</h3>
+                    <div class="button-group">
+                        <button class="action-btn" onclick="showFoodInfo('hidroponia')">Estufas Hidropônicas</button>
+                        <button class="action-btn" onclick="showFoodInfo('lab')">Proteínas de Laboratório</button>
+                    </div>
+                    <p id="food-output" class="output-text">Clique em uma opção para ver detalhes.</p>
                 </div>
             </div>
         </section>
 
-        <section id="vestuario" class="page-content">
-            <h2>Vestuário Espacial e Interno</h2>
+        <!-- PÁGINA 4: VESTUÁRIO -->
+        <section id="vestuario" class="page">
+            <h2>Vestuário Marciano</h2>
             <div class="card">
-                <img src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&w=1000&q=80" alt="Traje Espacial" class="section-img">
-                <p>Trajes de biopressão mantêm os astronautas seguros durante atividades fora dos habitats.</p>
+                <img src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&w=600&q=80" alt="Traje Espacial" class="thumb-img">
+                <p>O vestuário é dividido entre trajes pressurizados externos e roupas leves para o interior dos habitats.</p>
                 
-                <div class="suit-toggle">
-                    <button class="interact-btn" onclick="showSuit('eva')">Traje Externo (EVA)</button>
-                    <button class="interact-btn" onclick="showSuit('interno')">Traje Interno</button>
-                    <div id="suit-info" class="info-box">
-                        <p>Selecione um traje acima para ver suas especificações técnicas.</p>
+                <div class="suit-selector">
+                    <div class="button-group">
+                        <button class="action-btn" onclick="showSuit('eva')">Traje Externo (EVA)</button>
+                        <button class="action-btn" onclick="showSuit('interno')">Traje Interno</button>
                     </div>
+                    <div id="suit-output" class="output-box">Selecione um traje para examinar as especificações.</div>
                 </div>
             </div>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2026 Projeto Colonização de Marte</p>
+        <p>&copy; 2026 Base Marte - Todos os direitos reservados.</p>
     </footer>
 
     <script src="script.js"></script>
